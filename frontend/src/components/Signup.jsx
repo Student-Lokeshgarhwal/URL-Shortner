@@ -15,7 +15,7 @@ const navigate = useNavigate()
     const formdata = {name,password,email,role}
     await fetch('https://url-shortner-9dd3.onrender.com/user',{
       method:'POST',
-      credentials:true,
+      credentials:'include',
       headers: { 'Content-Type': 'application/json' },
       body:JSON.stringify(formdata)
     })
