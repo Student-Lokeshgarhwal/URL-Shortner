@@ -27,7 +27,7 @@ async function handleUserLogin(req, res) {
     const user = await User.findOne({ email, password });
     
     if (!user) {
-         console.log("User not found");
+         alert("User not found");
          return res.status(401).json({msg:"Invalid email or password"});
     
     }
@@ -42,7 +42,12 @@ async function handleUserLogin(req, res) {
 
     // stateless auth
     const token = setUser(user);   //jwt token
-    res.cookie("token", token);
+    res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None", // ✅ Required for cross-site cookies
+});
+
     // send as json response
     
 

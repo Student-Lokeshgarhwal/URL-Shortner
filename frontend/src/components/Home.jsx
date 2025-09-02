@@ -4,7 +4,6 @@ function Home() {
   const [urls, setUrls] = useState([])
   const [generateUrl, setGenerateUrl] = useState('')
   const [newShortURL, setNewShortURL] = useState('')
-  const [createdURL, setCreatedURL] = useState('')
 
   useEffect(() => {
     fetch('https://url-shortner-9dd3.onrender.com/', {
