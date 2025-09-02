@@ -11,7 +11,7 @@ function Login() {
     const submithandler = async (e) => {
         e.preventDefault()
         const formdata = { email,password }
-       const res = await fetch('http://localhost:8001/user/login', {
+       const res = await fetch('https://url-shortner-9dd3.onrender.com/user/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formdata),

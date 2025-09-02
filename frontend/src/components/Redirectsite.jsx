@@ -8,7 +8,7 @@ function Redirectsite() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://localhost:8001/url/${shortId}`, {
+      const res = await fetch(`https://url-shortner-9dd3.onrender.com/url/${shortId}`, {
         credentials: 'include'
       });
       if (res.ok) {

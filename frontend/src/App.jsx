@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Signup from './components/signup'
+import Signup from './components/Signup'
 import Login from './components/Login'
 import Home from './components/Home'
 import Admin from './components/Admin'
 import Unauth from './components/Unauth'
-import Redirectsite from './components/redirectsite'
+import Redirectsite from './components/Redirectsite'
 
 
 function App() {

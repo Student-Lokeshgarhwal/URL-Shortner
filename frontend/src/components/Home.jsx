@@ -7,7 +7,7 @@ function Home() {
   const [createdURL, setCreatedURL] = useState('')
 
   useEffect(() => {
-    fetch('http://localhost:8001/', {
+    fetch('https://url-shortner-9dd3.onrender.com/', {
       method: 'GET',
       credentials: 'include', // important for cookies
     })
@@ -29,7 +29,7 @@ function Home() {
 
  const handlegenerateUrl = (e) => {
   e.preventDefault();
-  fetch('http://localhost:8001/url', {
+  fetch('https://url-shortner-9dd3.onrender.com/url', {
     method: "POST",
     credentials: 'include',
     headers: {
@@ -59,7 +59,7 @@ function Home() {
 const handlerediretedUrl = async () => {
     // 1. Fetch the JSON from Express
     const res = await fetch(
-      `http://localhost:8001/url/${newShortURL}`, 
+      `https://url-shortner-9dd3.onrender.com/url/${newShortURL}`, 
       { credentials: 'include' }
     );
 
@@ -76,7 +76,7 @@ const handlerediretedUrl = async () => {
   const handlecreatedUrl = async(shortID)=>{
 
     const res = await fetch(
-      `http://localhost:8001/url/${shortID}`, 
+      `https://url-shortner-9dd3.onrender.com/url/${shortID}`, 
       { credentials: 'include' }
     );
     if (res.ok) {

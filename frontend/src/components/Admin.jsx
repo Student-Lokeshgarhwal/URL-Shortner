@@ -5,7 +5,7 @@ function Admin() {
       const [allUsers, setAllUsers] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:8001/admin/urls',{
+        fetch('https://url-shortner-9dd3.onrender.com/admin/urls',{
       method:"GET",
       credentials: "include"
     })

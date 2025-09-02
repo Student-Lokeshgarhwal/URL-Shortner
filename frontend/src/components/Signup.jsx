@@ -13,7 +13,7 @@ const navigate = useNavigate()
   const submithandler =async (e)=>{
     e.preventDefault()  
     const formdata = {name,password,email,role}
-    await fetch('http://localhost:8001/user',{
+    await fetch('https://url-shortner-9dd3.onrender.com/user',{
       method:'POST',
       credentials:true,
       headers: { 'Content-Type': 'application/json' },
