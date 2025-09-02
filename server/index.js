@@ -1,3 +1,4 @@
+const dotenv = require("dotenv");
 const express = require("express")
 const path = require("path")
 const cookieparser = require("cookie-parser")
@@ -13,7 +14,8 @@ const cors = require('cors')
 
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT;
+const DB_URL = process.env.DB_URL;
 
 app.use(cors({
     origin: ' http://localhost:5173',
@@ -24,7 +26,10 @@ app.use(express.urlencoded({extended:false}));
 app.use(cookieparser());
 app.use(checkForAuthentication);
 
-connectDb("mongodb://127.0.0.1:27017/short-url")
+connectDb(DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
     .then(() => console.log("mongodb connected!"))
 
     app.use("/user",userRouter)

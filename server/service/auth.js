@@ -1,6 +1,6 @@
 // stateless auth
 const jwt = require("jsonwebtoken")
-const secret = "lokesh1805"
+const secret = process.env.SECRET_KEY;
 
 // statefull auth
 // const sessionIdToUserMap = new Map();
