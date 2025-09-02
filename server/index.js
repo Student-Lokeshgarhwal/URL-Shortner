@@ -1,6 +1,5 @@
 const dotenv = require("dotenv");
 const express = require("express")
-const path = require("path")
 const cookieparser = require("cookie-parser")
 
 const { connectDb } = require("./connect");
@@ -9,6 +8,7 @@ const URL = require("./models/url")
 const URLRoute = require("./routes/url");
 const staticRoute = require("./routes/staticRouter");
 const userRouter = require("./routes/user");
+
 const { checkForAuthentication,restrictTo } = require("./middlewares/auth");
 const cors = require('cors')
 
