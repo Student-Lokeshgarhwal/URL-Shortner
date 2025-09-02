@@ -2,29 +2,24 @@ const User = require("../models/user");
 const { setUser, getUser } = require("../service/auth");
 
 async function handleUserSignUp(req, res) {
-    console.log(req.body)
-    const { name, email, role, password } = req.body
+    const { name, email, role, password } = req.body;
 
-    if (!name || !email || !role || !password) return res.redirect('/signup')
+    if (!name || !email || !role || !password) {
+        return res.status(400).json({ error: "All fields are required" });
+    }
 
-    const setRole = role.toLowerCase()    //User
+    const normalizedRole = role.toLowerCase();
+    if (normalizedRole !== "admin" && normalizedRole !== "user") {
+        return res.status(400).json({ error: "Role must be 'Admin' or 'User'" });
+    }
 
-    if (setRole != "admin" && setRole != "user") return res.redirect('/signup')
-
-    if (role === "admin" || role=== "user") return res.render('signup',{
-        err:"role must start with capital letter!"
-    })
-
-    await User.create({
-        name,
-        email,
-        role,
-        password
-    })
-
-    // return res.render('home')     //when render, only page display but not refreshed page.   
-    return res.status(200).json({msg:"User Created Successfully!"})        //when redirect,page display by get request
-
+    try {
+        await User.create({ name, email, role, password });
+        return res.status(200).json({ msg: "User Created Successfully!" });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
 }
 
 async function handleUserLogin(req, res) {

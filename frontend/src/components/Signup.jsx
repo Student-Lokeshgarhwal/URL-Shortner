@@ -13,7 +13,7 @@ const navigate = useNavigate()
   const submithandler =async (e)=>{
     e.preventDefault()  
     const formdata = {name,password,email,role}
-    await fetch('https://url-shortner-9dd3.onrender.com/user',{
+    await fetch('https://url-shortner-9dd3.onrender.com/user/',{
       method:'POST',
       credentials:'include',
       headers: { 'Content-Type': 'application/json' },
@@ -23,8 +23,11 @@ const navigate = useNavigate()
         if(res.status === 200){
             navigate('/login')
         }
+        if(res.status === 400){
+            alert('error in filling data!')
+        }
         else{
-            alert('error')
+            alert('Signup failed!')
         }
     })
     .catch((err)=>{
