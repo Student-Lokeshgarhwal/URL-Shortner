@@ -19,7 +19,7 @@ const DB_URL = process.env.DB_URL;
 
 app.use(cors({
     origin: [
-    'radiant-cascaron-751d55.netlify.app',
+    'https://radiant-cascaron-751d55.netlify.app',
     'http://localhost:5173'],
     credentials:true
 }))
